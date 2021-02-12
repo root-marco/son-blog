@@ -9,9 +9,8 @@
 		"devStart": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "marco",
   "license": "ISC",
-  "homepage": "https://github.com/root-marco/inside-your-psych-v2#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
