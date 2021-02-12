@@ -9,4 +9,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+app.use('/articles', articleRouter);
+
 app.listen(3000);
