@@ -4,19 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/root-marco/son-blog.git"
+    "start": "node server.js",
+		"devStart": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/root-marco/son-blog/issues"
-  },
-  "homepage": "https://github.com/root-marco/son-blog#readme",
+  "homepage": "https://github.com/root-marco/inside-your-psych-v2#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
