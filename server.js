@@ -1,17 +1,24 @@
+// MODULES
 import express from 'express';
 import exphbs from 'express-handlebars';
 
-import articleRouter from './routes/articles.js';
-import rootRouter from './routes/root.js';
-
+// APP
 const app = express();
 
+// HANDLEBARS
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main',
 }));
 app.set('view engine', 'handlebars');
 
+// ROUTES
+import rootRouter from './routes/root.js';
 app.use('/', rootRouter);
+
+import articleRouter from './routes/articles.js';
 app.use('/articles', articleRouter);
 
-app.listen(3000);
+// LISTEN
+app.listen(3000, () => {
+	console.log('server running');
+});
