@@ -1,5 +1,13 @@
 export const root = (req, res) => {
 
-	res.render('index');
+	const articles = [{
+		title: 'test article',
+		createdAt: Date.now(),
+		description: 'askldnaslkdnsk'
+	}];
+
+	res.render('index', {
+		articles: articles,
+	});
 
 };
