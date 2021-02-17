@@ -1,4 +1,4 @@
-export const root = (req, res) => {
+export const newArticle = (req, res) => {
 
 	res.render('articles/new');
 
