@@ -14,7 +14,6 @@ app.set('view engine', 'handlebars');
 // ROUTES
 import rootRouter from './routes/root.js';
 app.use('/', rootRouter);
-
 import articleRouter from './routes/articles.js';
 app.use('/articles', articleRouter);
 
