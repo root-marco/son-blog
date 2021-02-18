@@ -5,6 +5,15 @@ import mongoose from 'mongoose';
 
 // APP
 const app = express();
+app.use(express.urlencoded({
+	extended: false,
+}));
+
+// ROUTES
+import rootRouter from './routes/root.js';
+app.use('/', rootRouter);
+import articleRouter from './routes/articles.js';
+app.use('/articles', articleRouter);
 
 // MONGOOSE
 mongoose.connect('mongodb://localhost/markdown-blog', {
@@ -17,12 +26,6 @@ app.engine('handlebars', exphbs({
 	defaultLayout: 'main',
 }));
 app.set('view engine', 'handlebars');
-
-// ROUTES
-import rootRouter from './routes/root.js';
-app.use('/', rootRouter);
-import articleRouter from './routes/articles.js';
-app.use('/articles', articleRouter);
 
 // LISTEN
 app.listen(3000, () => {
