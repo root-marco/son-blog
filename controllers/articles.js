@@ -1,6 +1,6 @@
 import Article from '../models/article.js';
 
-export const getNewArticle = (req, res) => {
+export function getNewArticle(req, res) {
 
 	res.render('articles/new', {
 		article: new Article(),
@@ -8,7 +8,7 @@ export const getNewArticle = (req, res) => {
 
 };
 
-export const postNewArticle = async (req, res) => {
+export async function postNewArticle(req, res) {
 
 	let article = new Article({
 		title: req.body.title,
@@ -28,8 +28,11 @@ export const postNewArticle = async (req, res) => {
 
 };
 
-export const articleId = (req, res) => {
+export async function articleId(req, res) {
 
-
+	const article = await Article.findById(req.params.id);
+	res.render('articles/show', {
+		article: article,
+	});
 
 };
