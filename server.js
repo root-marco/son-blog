@@ -24,10 +24,6 @@ mongoose.connect('mongodb://localhost/markdown-blog', {
 // HANDLEBARS
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main',
-	runtimeOptions: {
-		allowProtoPropertiesByDefault: true,
-		allowProtoMethodsByDefault: true,
-},
 }));
 app.set('view engine', 'handlebars');
 
