@@ -20,7 +20,6 @@ export async function postNewArticle(req, res) {
 		article = await article.save();
 		res.redirect(`/articles/${article.id}`);
 	} catch (error) {
-		console.log(error);
 		res.render('articles/new', {
 			article: article,
 		});
@@ -28,7 +27,7 @@ export async function postNewArticle(req, res) {
 
 };
 
-export async function articleId(req, res) {
+export async function getArticleId(req, res) {
 
 	const article = await Article.findById(req.params.id);
 	res.render('articles/show', {
