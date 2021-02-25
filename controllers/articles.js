@@ -29,7 +29,10 @@ export async function postNewArticle(req, res) {
 
 export async function getArticleId(req, res) {
 
-	const article = await Article.findById(req.params.id);
+	const article = await Article.findById(req.params.id).lean();
+
+	if (article == null) res.redirect('/new');
+
 	res.render('articles/show', {
 		article: article,
 	});
