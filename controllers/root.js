@@ -1,13 +1,13 @@
-export const root = (req, res) => {
+import Article from '../models/article.js';
 
-	const articles = [{
-		title: 'test article',
-		createdAt: new Date().toLocaleDateString('pt-BR'),
-		description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, ut amet blanditiis sequi explicabo, temporibus porro omnis voluptas nesciunt tempore aperiam. Voluptatem, repudiandae assumenda quo perferendis rem voluptas ipsum mollitia.',
-	}];
+export async function root(req, res) {
+
+	const articles = await Article.find().sort({
+		_id: -1,
+	}).lean();
 
 	res.render('articles/index', {
 		articles: articles,
 	});
 
-};
+}
