@@ -18,6 +18,11 @@ const articleSchema = new mongoose.Schema({
 		type: String,
 		default: (new Date).toDateString(),
 	},
+	slug: {
+		type: String,
+		required: true,
+		unique: true,
+	},
 });
 
 export default mongoose.model('Article', articleSchema);
