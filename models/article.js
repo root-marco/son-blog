@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import marked from 'marked';
+import slugify from 'slugify';
 
 const articleSchema = new mongoose.Schema({
 	title: {
