@@ -38,3 +38,10 @@ export async function getArticleSlug(req, res) {
 	});
 
 };
+
+export async function deleteArticleId(req, res) {
+
+	await Article.findByIdAndDelete(req.params.id);
+	res.redirect('/');
+
+};
