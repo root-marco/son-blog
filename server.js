@@ -16,10 +16,16 @@ import articleRouter from './routes/articles.js';
 app.use('/articles', articleRouter);
 
 // MONGOOSE
-mongoose.connect('mongodb://localhost/markdown-blog', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+try {
+	await mongoose.connect('mongodb://localhost/markdown-blog', {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useCreateIndex: true,
+	});
+	console.log('database connected');
+} catch (error) {
+	console.log(error);
+}
 
 // HANDLEBARS
 app.engine('handlebars', exphbs({
