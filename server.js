@@ -2,12 +2,22 @@
 import express from 'express';
 import exphbs from 'express-handlebars';
 import mongoose from 'mongoose';
+import methodOverride from 'method-override';
 
 // APP
 const app = express();
 app.use(express.urlencoded({
 	extended: false,
 }));
+
+//METHOD OVERRIDE
+app.use(methodOverride('_method'));
+
+// HANDLEBARS
+app.engine('handlebars', exphbs({
+	defaultLayout: 'main',
+}));
+app.set('view engine', 'handlebars');
 
 // ROUTES
 import rootRouter from './routes/root.js';
@@ -26,12 +36,6 @@ try {
 } catch (error) {
 	console.log(error);
 }
-
-// HANDLEBARS
-app.engine('handlebars', exphbs({
-	defaultLayout: 'main',
-}));
-app.set('view engine', 'handlebars');
 
 // LISTEN
 app.listen(3000, () => {
