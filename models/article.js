@@ -4,6 +4,8 @@ import slugify from 'slugify';
 import createDomPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
 
+const dompurify = createDomPurify(new JSDOM().window);
+
 const articleSchema = new mongoose.Schema({
 	title: {
 		type: String,
